@@ -28,6 +28,8 @@ int main(int argc, char *argv[]) {
 		exit(EXIT_FAILURE);
 	}
 
+	close(fd);
+
 	do_work(options, data, filesize);
 
 	int ret = munmap(data, filesize);
