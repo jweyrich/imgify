@@ -1,6 +1,8 @@
-# imgify - convert any file to png and back
+# imgify - Convert any file to PNG and back
 
-## bin2png
+## Usage
+
+### bin2png
 
 	usage: bin2png -i <in_filename> -o <out_filename> [-p <pad_byte>]
 
@@ -13,9 +15,9 @@ Example:
 	  size => 4524970 bytes
 	  image => 1449x1449 px, 32 bpp, 929px padding
 
-## png2bin
+### png2bin
 
-	usage: png2bin -i <in_filename> -o <out_filename> [-p <pad_byte>
+	usage: png2bin -i <in_filename> -o <out_filename> [-p <pad_byte>]
 
 Example:
 
@@ -26,3 +28,7 @@ Example:
 	Output file => mach_kernel.bin
 	  size => 8394688 bytes
 	  image => 1449x1449 px, 32 bpp
+
+## License
+
+imgify is distributed under a GPL V2 licence. See the LICENSE file for more information.

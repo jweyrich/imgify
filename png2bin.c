@@ -1,5 +1,5 @@
 /*
-	imgify - convert any file to png and back.
+	imgify - Convert any file to PNG and back.
 
 	png2bin.c
 
