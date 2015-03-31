@@ -53,7 +53,7 @@ static void do_work(const options_t *options, void *data, size_t filesize) {
 			exit(EXIT_FAILURE);
 		}
 
-		size_t block_size = 256;
+		size_t block_size = 8192;
 		size_t remaining = buffer_size;
 		size_t total_written = 0;
 
