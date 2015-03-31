@@ -27,7 +27,6 @@ Example:
 	  image => 1449x1449 px, 32 bpp, 929px padding
 	Output file => mach_kernel.bin
 	  size => 8394688 bytes
-	  image => 1449x1449 px, 32 bpp
 
 ## License
 
