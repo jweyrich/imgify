@@ -69,8 +69,7 @@ static void do_work(const options_t *options, void *data, size_t filesize) {
 
 		fclose(outf);
 
-		printf("Output file => %s\n  size => %zu bytes\n  image => %ux%u px, %d bpp\n",
-			options->output, fsize(options->output), width, height, channels * 8);
+		printf("Output file => %s\n  size => %zu bytes\n", options->output, fsize(options->output));
 	}
 }
 
