@@ -17,7 +17,7 @@ static void usage() {
 }
 
 static void version() {
-	printf("%s\n%s\n", PROGRAM, LICENSE_TEXT);
+	printf("%s %s\n\n%s\n", PROGRAM, VERSION, LICENSE_TEXT);
 }
 
 static options_t *parse_options(int argc, char *argv[])
