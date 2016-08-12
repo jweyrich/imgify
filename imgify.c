@@ -251,6 +251,7 @@ bool png_save(const char *filename, uint8_t *data, uint32_t width, uint32_t heig
 			memset(padded_row_ptr, pad_byte, rowbytes);
 			memcpy(padded_row_ptr, row_ptr, rowbytes - padding);
 			png_write_row(png_ptr, padded_row_ptr);
+			free(padded_row_ptr);
 		}
 	}
 
