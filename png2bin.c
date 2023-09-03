@@ -27,11 +27,10 @@
 
 #include "imgify.h"
 #include "common.h"
+#include "common_options.h"
+#include "version.h"
 
 #define PROGRAM "png2bin"
-#define VERSION "1.0"
-
-#include "common_options.h"
 
 static void do_work(const options_t *options, void *data, size_t filesize) {
 	uint8_t *buffer;
@@ -49,6 +48,7 @@ static void do_work(const options_t *options, void *data, size_t filesize) {
 
 		FILE *outf = fopen(options->output, "wb");
 		if (outf == NULL) {
+			free(buffer);
 			perror("fopen");
 			exit(EXIT_FAILURE);
 		}
@@ -68,6 +68,7 @@ static void do_work(const options_t *options, void *data, size_t filesize) {
 		}
 
 		fclose(outf);
+		free(buffer);
 
 		printf("Output file => %s\n  size => %zu bytes\n", options->output, fsize(options->output));
 	}

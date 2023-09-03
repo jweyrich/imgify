@@ -228,6 +228,14 @@ bool png_save(const char *filename, uint8_t *data, uint32_t width, uint32_t heig
 
 	// The length of one row in bytes - the seme as `width * bit_depth * channels / 8`.
 	const uint32_t rowbytes = png_get_rowbytes(png_ptr, info_ptr);
+	uint8_t *padded_row_ptr = malloc(rowbytes);
+	if (padded_row_ptr == NULL) {
+		png_destroy_write_struct(&png_ptr, &info_ptr);
+		fclose(fp);
+		perror("malloc");
+		return false;
+	}
+
 	const bool needs_padding = padding > 0;
 	for (uint32_t i=0; i < height; i++) {
 		const bool is_lastrow = i == height - 1;
@@ -236,25 +244,17 @@ bool png_save(const char *filename, uint8_t *data, uint32_t width, uint32_t heig
 
 		//printf("DEBUG: [png_save] row=%u width=%u rowbytes=%u\n", i+1, width, rowbytes);
 
-		if (!is_padding_now)
-		{
+		if (!is_padding_now) {
 			png_write_row(png_ptr, row_ptr);
-		}
-		else
-		{
-			uint8_t *padded_row_ptr = malloc(rowbytes);
-			if (padded_row_ptr == NULL) {
-				png_destroy_write_struct(&png_ptr, &info_ptr);
-				fclose(fp);
-				perror("malloc");
-				return false;
-			}
+		} else {
 			memset(padded_row_ptr, pad_byte, rowbytes);
 			memcpy(padded_row_ptr, row_ptr, rowbytes - padding);
 			png_write_row(png_ptr, padded_row_ptr);
 			free(padded_row_ptr);
 		}
 	}
+
+	free(padded_row_ptr);
 
 	// Signal we have finishing writing.
 	png_write_end(png_ptr, NULL);
