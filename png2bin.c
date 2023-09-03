@@ -27,11 +27,10 @@
 
 #include "imgify.h"
 #include "common.h"
+#include "common_options.h"
+#include "version.h"
 
 #define PROGRAM "png2bin"
-#define VERSION "1.0"
-
-#include "common_options.h"
 
 static void do_work(const options_t *options, void *data, size_t filesize) {
 	uint8_t *buffer;
