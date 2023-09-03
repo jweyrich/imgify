@@ -20,6 +20,10 @@ Install `libpng`:
 	cd imgify
 	make
 
+If you're on macOS, you need to install libpng using [Homebrew](https://brew.sh/) and run `make` using some extra flags. Example:
+
+	CFLAGS="-I$(libpng-config --prefix)/include" LDFLAGS="-L$(libpng-config --prefix)/lib" make
+
 ## Usage
 
 ### bin2png
