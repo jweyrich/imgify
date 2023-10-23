@@ -5,13 +5,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include "version.h"
 typedef struct {
 	char *input;
 	char *output;
 	uint8_t pad_byte;
 } options_t;
-
+extern char* PROGRAM;
 static void usage() {
 	fprintf(stderr, "usage: %s -i <in_filename> -o <out_filename> [-p <pad_byte>]\n", PROGRAM);
 }
