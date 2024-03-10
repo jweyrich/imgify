@@ -19,6 +19,8 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#define PROGRAM "png2bin"
+
 #include <stdbool.h>
 #include <stdio.h>
 #include <errno.h>
@@ -29,8 +31,6 @@
 #include "common.h"
 #include "common_options.h"
 #include "version.h"
-
-#define PROGRAM "png2bin"
 
 static void do_work(const options_t *options, void *data, size_t filesize) {
 	uint8_t *buffer;
